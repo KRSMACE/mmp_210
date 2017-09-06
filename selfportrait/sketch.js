@@ -4,17 +4,17 @@ function setup() {
 function draw() {
     background("white");
     
-    noStroke()
+    noStroke("")
     fill("saddlebrown")
     ellipse(155,200,200,250);
     
     fill("black")
-    ellipse(105,200,100,50);
-    ellipse(205,200,100,50);
+    ellipse(105,200,60,60);
+    ellipse(205,200,60,60);
     
     fill("white")
-    ellipse(125,200,55,55);
-    ellipse(225,200,55,55);
+    ellipse(105,200,55,55);
+    ellipse(205,200,55,55);
     
     
     
