@@ -1,3 +1,11 @@
+
+var y = -290;//Black KRS
+var ySpeed = 3;
+var y2 = 1;//White KRS
+var ySpeed2 = 3;
+var x = -400;//Purple ACE
+var xSpeed = 3;
+
 var myFont;
 function preload() {
   myFont = loadFont('fonts/futura.otf');
@@ -46,17 +54,37 @@ function draw() {
     fill("black");
     textFont(myFont);
     textSize(fontS);
-    text(str1, 110, height/2);
+    text(str1, 110, y, height/2);
+   
+    //y++;
+    y = y + ySpeed;
+    
+    if (y > height/2) {
+	   y = height/2;
+}
     
     fill("mediumpurple");
     textFont(myFont);
     textSize(fontS);
-    text(str2, 319, height/2);
+    text(str2, 319, x, height/2);
+    
+    //x++;
+    x = x + xSpeed;
+    if (x > height/2) {
+        x = height/2;
+    }
+        
     
     fill("white");
     textFont(myFont);
     textSize(fontS);
-    text(str1, 114.5, height/2);
+    text(str1, 114.5, y2, height/2);
+    //y2++;
+    y2 = y2 + ySpeed2;
+    
+    if (y2 > height/2) {
+	   y2 = height/2;
+}
     
     
     
