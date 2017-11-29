@@ -2,7 +2,7 @@
 function setup() {
   var columnSize = 75;
   var rowSize = 130;
-  var yellow = color(255, 248, 214);
+  var yellow = color(216, 191, 216);
   var gry = color(105,105,105);
   var brown = color(139, 69, 19);
   var darkBrown = color(107, 58, 3);
