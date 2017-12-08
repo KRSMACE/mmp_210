@@ -1,36 +1,69 @@
-var jump;
-var x = 0;
-var y = 0;
-var speedX = 5;
-var speedY = 5;
+var circles = [];
+var soundFiles = ["ex0.wav", "ex1.wav", "ex2.wav", "ex3.wav"];
+var sounds = [];
 
-function preload(){
-    jump = loadSound("jump.wav");
-}
+/*function preload() {
+	for (var i = 0; i < soundFiles.length; i++) {
+		var s = loadSound(soundFiles[i]);
+		sounds.push(s);
+	}
+}*/
+
 function setup() {
-    createCanvas(640, 360);
-    noStroke();
+	createCanvas(720, 720);
+	noStroke();
+//	for (var i = 0; i < 10; i++) {
+//		var c = new Circle(random(0,width), random(0,height));
+//		circles.push(c);
+//	}
+	
+	var circle1 = new Circle(width/4, height/4,  sounds);
+	circles.push(circle1);
+	var circle2 = new Circle(width * 3/4, height/4,  sounds[1]);
+	circles.push(circle2);
 }
+
 function draw() {
-    background(51);
-    
-    fill(255);
-    ellipse(x, y, 50);
-    
-    if (x > width || x < 0){   
-        speedX *= -1;
-        jump.play();
-    }
-    
-    if (y > height || y < 0){   
-        speedY *= -1;
-        jump.play();
-    }
-    function mousePressed(){
-        
-        
-    }
-    
-    
-    
+	background(51);
+	for (var i = 0; i < circles.length; i++) {
+		circles[i].display();
+	}
 }
+
+function mousePressed() {
+	for (var i = 0; i < circles.length; i++) {
+		circles[i].click();
+	}
+}
+
+function Circle(x, y, s) {
+	this.x = x;
+	this.y = y;
+	this.c = color( random(255), random(255), random(255));
+	this.size = random(50,100);
+	//this.sound = random(sounds);
+	this.sounds = s;
+	this.display = function() {
+		fill(this.c);
+		ellipse(this.x, this.y, this.size);
+	}
+	this.click = function() {
+		var d = dist(mouseX, mouseY, this.x, this.y);
+		if ( d < this.size) {
+            //var s = random(this.sounds);
+            //s.play();
+            random(this.sounds).play();
+			this.c = color( random(255), random(255), random(255));
+			for (var i = 0; i < sounds.length; i++) {
+				sounds[i].stop();
+			}
+			this.sound.play();
+		}
+	}
+}
+
+
+
+
+
+
